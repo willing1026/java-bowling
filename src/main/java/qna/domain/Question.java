@@ -92,4 +92,14 @@ public class Question extends AbstractEntity {
     public String toString() {
         return "Question [id=" + getId() + ", title=" + title + ", contents=" + contents + ", writer=" + writer + "]";
     }
+
+    public boolean isExistOtherUserAnswer(User loginUser) {
+        return answers.stream()
+                .anyMatch(answer -> !answer.isOwner(loginUser));
+    }
+
+    public Question delete() {
+        this.answers.forEach(answer -> answer.setDeleted(true));
+        return this.setDeleted(true);
+    }
 }

@@ -7,3 +7,11 @@
 
 ## 온라인 코드 리뷰 과정
 * [텍스트와 이미지로 살펴보는 온라인 코드 리뷰 과정](https://github.com/next-step/nextstep-docs/tree/master/codereview)
+
+
+## 테스트 쉬운 부분과 어려운 부분 분리
+
+#### 쉬운부분
+- 질문과 답변 삭제가능여부 판단
+- 삭제 상태 변경 (트랜잭션 내부이기 때문에, method 끝나는 시점에 자동으로 commit 됨)
+- 삭제이력 생성 및 반환
