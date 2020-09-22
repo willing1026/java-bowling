@@ -2,6 +2,9 @@ package qna.domain;
 
 import qna.CannotDeleteException;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 // 역할 - 질문을 삭제한다.
 // 책임 - 삭제가능 여부 확인, 질문(답변) 삭제, 삭제이력 제공
 public class QnaDeletion {
@@ -25,5 +28,11 @@ public class QnaDeletion {
     //질문, 답변 삭제
     public Question delete() {
         return question.delete();
+    }
+
+    public List<DeleteHistory> getDeleteHistory() {
+        question.deleteHistory(LocalDateTime.now());
+
+        return null;
     }
 }

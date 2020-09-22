@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import qna.CannotDeleteException;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -61,5 +63,15 @@ class QnaDeletionTest {
 
         //then
         assertThat(question.isDeleted()).isTrue();
+    }
+
+    @DisplayName("삭제이력 반환")
+    @Test
+    void getDeleteHistory() throws CannotDeleteException {
+        //given
+        QnaDeletion qnaDeletion = new QnaDeletion(Q1, JAVAJIGI);
+
+        //when
+        List<DeleteHistory> deleteHistories = qnaDeletion.getDeleteHistory();
     }
 }

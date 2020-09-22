@@ -72,4 +72,8 @@ public class Answer extends AbstractEntity {
     public String toString() {
         return "Answer [id=" + getId() + ", writer=" + writer + ", contents=" + contents + "]";
     }
+
+    public static Answer getDeleteHistory(Answer answer) {
+        return new DeleteHistory(ContentType.ANSWER, getId() );
+    }
 }
